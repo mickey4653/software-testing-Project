@@ -1,0 +1,67 @@
+<!--<!DOCTYPE html>-->
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="text/html, width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Form - ENPM 614: Assignment 4</title>
+    <link th:href="@{/styles/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/styles/custom.css}" rel="stylesheet" />
+</head>
+<body class="text-center" data-gr-c-s-loaded="true">
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto" th:insert="fragments/header.html"></header>
+    <main role="main" class="inner cover">
+        <h1 class="cover-heading">Form</h1>
+        <p class="lead">Form Input</p>
+        <form name="toyForm" action="/form" method="post">
+            <fieldset class="text-left">
+            <fieldset>
+                <div class="form-group p-2">
+                    <p class="text-warning" th:text="${emailError}"></p>
+                    <label for="inputEmail1">Email address</label>
+                    <input type="text" name="email" class="form-control" th:classappend="${emailError != null} ? 'is-invalid'" id="inputEmail1" aria-describedby="emailHelp" placeholder="Enter email" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAfBJREFUWAntVk1OwkAUZkoDKza4Utm61iP0AqyIDXahN2BjwiHYGU+gizap4QDuegWN7lyCbMSlCQjU7yO0TOlAi6GwgJc0fT/fzPfmzet0crmD7HsFBAvQbrcrw+Gw5fu+AfOYvgylJ4TwCoVCs1ardYTruqfj8fgV5OUMSVVT93VdP9dAzpVvm5wJHZFbg2LQ2pEYOlZ/oiDvwNcsFoseY4PBwMCrhaeCJyKWZU37KOJcYdi27QdhcuuBIb073BvTNL8ln4NeeR6NRi/wxZKQcGurQs5oNhqLshzVTMBewW/LMU3TTNlO0ieTiStjYhUIyi6DAp0xbEdgTt+LE0aCKQw24U4llsCs4ZRJrYopB6RwqnpA1YQ5NGFZ1YQ41Z5S8IQQdP5laEBRJcD4Vj5DEsW2gE6s6g3d/YP/g+BDnT7GNi2qCjTwGd6riBzHaaCEd3Js01vwCPIbmWBRx1nwAN/1ov+/drgFWIlfKpVukyYihtgkXNp4mABK+1GtVr+SBhJDbBIubVw+Cd/TDgKO2DPiN3YUo6y/nDCNEIsqTKH1en2tcwA9FKEItyDi3aIh8Gl1sRrVnSDzNFDJT1bAy5xpOYGn5fP5JuL95ZjMIn1ya7j5dPGfv0A5eAnpZUY3n5jXcoec5J67D9q+VuAPM47D3XaSeL4AAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+            </fieldset>
+            <fieldset class="form-group p-2">
+                <p class="text-warning" th:text="${colorError}"></p>
+                <label for="colorOptions" th:class="${colorError != null} ? 'text-danger'">Color</label>
+                <div id="colorOptions">
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="color" value="red">
+                            Red
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="color" value="white">
+                            White
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" name="color" value="blue">
+                            Blue
+                        </label>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <div class="form-group p-2">
+                    <p class="text-warning" th:text="${agreeError}"></p>
+                    <label for="agreementCheckbox1">Do you agree to submit this form?</label>
+                    <div class="custom-control custom-switch" id="agreementCheckbox1">
+                        <input type="checkbox" class="custom-control-input" th:classappend="${agreeError != null} ? 'is-invalid'" id="switch1" name="isAgreed">
+                        <label class="custom-control-label" for="switch1">I Agree</label>
+                    </div>
+                </div>
+            </fieldset>
+            </fieldset>
+            <button type="submit" class="btn btn-primary px-5">Submit</button>
+        </form>
+    </main>
+    <footer class="mt-auto" th:insert="fragments/footer.html"></footer>
+</div>
+</body>
+</html>
